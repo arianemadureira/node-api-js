@@ -11,7 +11,9 @@ jobs:
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-
+      - name: Run tests and generate reports
+        run: npx jest --coverage --coverageReporters json-summary
+        
       - name: Jest Coverage Comment
         if: github.ref == 'refs/heads/main'
         id: coverageComment
