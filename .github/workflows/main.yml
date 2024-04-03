@@ -25,8 +25,8 @@ jobs:
           fi
           
       - name: Run tests and generate reports
-        run: npm test -- --testPathPattern="./test" --reporter=jest-junitt
+        run: npm test -- --testPathPattern="./test" --reporter=jest-junit
         # Assuming jest-junit generates XML report
 
       - name: Copy test reports to wiki
-        run: cp -r ./path/to/test/reports/*.xml ./wiki/
+        run: cp -r ./path/to/test/*.xml ./wiki/
