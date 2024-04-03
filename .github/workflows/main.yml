@@ -27,7 +27,11 @@ jobs:
       - name: Run tests and generate reports
         run: npm test -- --testPathPattern="./test" --reporter=jest-junit
         # Assuming jest-junit generates XML report
-      
+        
+      - name: Run tests
+        run: |
+          npx jest --coverage --coverageReporters json-summary
+          
       - name: Jest Test Report
         uses: greguintow/jest-coverage-comment@0.1.9
             
