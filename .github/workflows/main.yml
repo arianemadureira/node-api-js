@@ -31,23 +31,18 @@ jobs:
         run: |
           npx jest --coverage --coverageReporters json-summary
           
-      - name: Jest Test Report
+      - name: Jest Coverage Comment
         uses: MishaKav/jest-coverage-comment@main
-        id: coverageComment
         with:
-          hide-comment: true
-          coverage-path: ./coverage.txt
+          coverage-summary-path: ./coverage/coverage-summary.json
+          title: My Jest Coverage Comment
+          summary-title: My Summary Title
+          badge-title: Coverage
+          hide-comment: false
+          create-new-comment: false
+          hide-summary: false
+          junitxml-title: My JUnit Title
           junitxml-path: ./coverage/junit.xml
+          coverage-title: My Coverage Title
+          coverage-path: ./coverage.txt
           
-
-          
-      - name: Create the badge
-        if: github.ref == 'refs/heads/main'
-        uses: schneegans/dynamic-badges-action@v1.6.0
-        with:
-          gistID: 5e90d640f8c212ab7bbac38f72323f80
-          filename: jest-coverage-comment__main.json
-          label: coverage
-          message: ${{ steps.coverageComment.outputs.coverage }}%
-          color: ${{ steps.coverageComment.outputs.color }}
-          namedLogo: javascript
