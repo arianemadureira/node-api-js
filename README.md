@@ -1,3 +1,3 @@
 ﻿# node-api-js.
- <!-- Jest Coverage Comment:Begin -->
-<!-- Jest Coverage Comment:End -->
+<!-- Jest Coverage Comment:Begin -->
+\n<!-- Jest Coverage Comment:End -->
